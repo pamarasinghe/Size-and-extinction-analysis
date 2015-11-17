@@ -17,4 +17,10 @@ average_mass_extinct$avg_mass
 average_mass_extant <- avg_mass_var[avg_mass_var$status=="extant",c('avg_mass')]
 average_mass_extant$avg_mass
 
+##Exercise1.3
 
+by_continent <- group_by(mammal_sizes,continent)
+continent <- summarize(by_continent,avg_mass= mean(na.omit(combined_mass)))
+print(continent)
+
+filter(by_continent,status=="extinct")
